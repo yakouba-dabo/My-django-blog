@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>CONTACT FORM | SENDING TO YOUR EMAIL </title>
+      <!-- <link rel="stylesheet" href="{% static 'style.css' %}"> -->
+      <style>
+            
+            button{
+                  display: block;
+                  margin: 0 auto;
+                  padding: 13px;
+                  transition: all 2ms ease-in  ;
+                  width: 20%;
+                  border: 2px solid gray;
+                  border-radius: 10px;
+            }
+            button:hover{
+                  color: white;
+                  background: green;
+                  width: 20%;
+                  transition: all 3ms ease-in ;
+
+            }
+            body{
+                  background-color: gray;
+            }
+            .come{
+                  margin: 0px auto;
+                  width:400px;
+                  border-radius: 30px;;
+                  background: orange;
+            }
+            .field{
+                  padding: 10px;
+                  width: 370px;
+                  margin-top: 20px;
+                  border: 2px solid gray;
+                  border-radius: 10px 40px 20px 40px;
+                  outline: none;
+            }
+            input{
+                  outline: none;
+            }
+            h1{
+                  color: red;
+                  font-size: 30px;
+                  padding: 10px;
+                  text-align: center;
+            }
+            h2{
+                  text-align: center;
+                  font-size: 20px;
+                  color: green;
+                  font-style: italic;
+
+            }
+
+      </style>
+</head>
+      <body>
+            
+            <script>
+                  function come(){
+                        var d=document.getElementById('name').value;
+                        var l=/^[A-Z]+$/;
+
+                        if (d.match(l)){
+                              document.getElementById("today").innerHTML="<span style='color:green;  font-size:20px;'>Correct name </span>";
+                              document.getElementById("name").style.border='4px solid green';
+                              document.today.focus();
+                              return true; 
+                        }
+                        else{
+                              document.getElementById("today").innerHTML="<span style='color:red;  font-size:20px;'>Name must be in capitaletter</span>";
+                              document.getElementById("name").style.border='4px solid red';
+                              document.today.focus();
+                              return false; 
+                        }
+                  }
+
+                  function myemail(){
+                        var x=document.getElementById('two').value;
+                        var w=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+                        if (x.match(w)){
+                              document.getElementById("barca").innerHTML="<span style='color:green;  font-size:20px;'>Correct Email </span>";
+                              document.getElementById("two").style.border='4px solid green';
+                              document.barca.focus();
+                              return true; 
+                        }
+                        else{
+                              document.getElementById("barca").innerHTML="<span style='color:red;  font-size:20px;'>Input a correct email address</span>";
+                              document.getElementById("two").style.border='4px solid red';
+                              document.barca.focus();
+                              return false; 
+                        }
+                  }
+
+                  // this is validations for the number 
+
+                  function dabofresh(){
+                        var x=document.getElementById('ber').value;
+                        var w=/^[0-9]+$/;
+
+                        if (x.match(w)){
+                              document.getElementById("fresh").innerHTML="<span style='color:green;  font-size:20px;'>Correct Number </span>";
+                              document.getElementById("ber").style.border='4px solid green';
+                              document.fresh.focus();
+                              return true; 
+                        }
+                        else{
+                              document.getElementById("fresh").innerHTML="<span style='color:red;  font-size:20px;'>Number Only </span>";
+                              document.getElementById("ber").style.border='4px solid red';
+                              document.fresh.focus();
+                              return false; 
+                        }
+                  }
+
+                  function area(){
+                        var x=document.getElementById('test').value;
+                        var w=/^[0-9a-zA-Z]+$/;
+
+                        if (x.match(w)){
+                              document.getElementById("mess").innerHTML="<span style='color:green;  font-size:20px;'>Correct Text  </span>";
+                              document.getElementById("test").style.border='4px solid green';
+                              document.mess.focus();
+                              return true; 
+                        }
+                        else{
+                              document.getElementById("mess").innerHTML="<span style='color:red;  font-size:20px;'>You can't leave it empty just add Any text at all </span>";
+                              document.getElementById("test").style.border='4px solid red';
+                              document.mess.focus();
+                              return false; 
+                        }
+                  }
+
+            </script>
+           <h1>GET IN TOUCH</h1>
+            <section class="section" id="contact">
+                  <form class="come" method="POST" name="contactform" onsubmit="return validateForm()">
+                        {% csrf_token %}
+                        <h2>Contact me </h2>
+                        <input type="text" name="name" id="name" class="field" placeholder="your name" onkeyup="come()" required><br>
+                        <span id="today"></span><br>
+                        <input type="email" name="email" id="two" class="field" placeholder="your email here" onkeyup="myemail()" required><br>
+                        <span id="barca"></span><br>
+                        <input type="number" name="phone" id="ber" class="field" placeholder="your phone number " required onkeyup="dabofresh()"><br>
+                        <span id="fresh"></span><br>
+                        <textarea name="message" class="field" id="test" onkeyup="area()"></textarea><br>
+                        <span id="mess"></span>
+                        <button class="btn" type="submit">Send Now </button>
+                  </form>
+            </section>
+      </body>
+</html>
