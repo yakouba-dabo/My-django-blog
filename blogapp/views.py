@@ -1,3 +1,5 @@
+
+from multiprocessing import context
 from django.views import generic
 from .models import Post
 from django.db.models import Q
@@ -17,17 +19,18 @@ class PostDetail(generic.DetailView):
 
 #this is for the searching functionnality 
 
-def index(request):
+def serach(request):
         if 'q' in request.GET:
             q = request.GET['q']
-            multiple_q =Q(Q(title__icontains=q))
+            multiple_q=Q(Q(title__icontains=q))
             posts=Post.objects.filter(multiple_q)
+            return render(request,'search.html', {'posts':posts})
         else:
             posts=Post.objects.all()
-        context= {
-            'posts':posts
-        }
-        return render(request,'index.html',context)
+        # context= {
+        #     'posts':posts
+        # }
+        return render(request,'index.html',{'posts':posts})
 
 
 def contact(request):
@@ -51,3 +54,14 @@ def contact(request):
             '''.format(form_data['name'], form_data['message'], form_data['email'], form_data['phone'])
             send_mail('You got a mail', message , '' , ['daboyakouba22@gmail.com']) #this will be your email address
         return render(request,'contact.html', {})
+
+
+def about(request):
+    return render(request,'about.html')
+
+def news(request):
+    blog= Post.objects.all()
+    context={
+        'blog':blog
+    }   
+    return render(request,'news.html', context )

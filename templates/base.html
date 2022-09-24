@@ -3,170 +3,310 @@
 
     <head>
         <title>My Django Blog website</title>
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+        
         <meta name="google" content="notranslate" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>            
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
         <style>
-            @media screen and (max-width:768px){
+            @media screen and (min-width:768px) {
                 .all{
                     width: 100%;
+                    background: black;
+                    color: white
                 }
                 #amet{
                     margin-left: 55px;
-                }
-                .all p{
-                    text-align: center;
-                    border-radius: 20px;
-                    border: 2px solid ;
-                    width: 400px;
-                    margin-top: 40px;
-                }
-                .all p:hover{
-                    background: orange;
-                    border:2px solid;
                 }
                 .carousel-item img{
 
                     height: 400px;
                 }
+                .col-lg-4 p{
+                    padding: 24px;
+                }
+                body {
+                    font-family: "Roboto", sans-serif;
+                    font-size: 17px;
+                    background-color:rgb(230,230,230);
+                }
+                .shadow {
+                    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+                }
+                .btn-danger {
+                    color: #fff;
+                    background-color: green;
+                    border-color: green;
+                }
+                .btn-danger:hover{
+                    color: orange;
+                    background: blue;
+                } 
+                .navbar{
+                    position: fixed;
+                    width: 100%;
+                    z-index: 100;
+                    background-color: #778899;
+                }
+                .carousel-item button:hover{
+                    color: white;
+                    background: blue;
+                }
+                #label{
+                    font-size: 80px;
+                    margin-top: -300px;
+                    font-weight: bold;
+                }
+                .carousel-item p{
+                    font-size: 20px;
+                }
+                .carousel-item button{
+                    border: 1px solid;
+                    border-radius: 20px;
+                    padding: 10px;
+                    background:orange;
+                    color: white;
+                }
+                #amet ul li{
+                    list-style-type: none;
+                    font-size: 20px;
+                    padding: 10px;
+                    cursor: pointer;
+                }
+                #amet ul li:hover{
+                    color: orange;
+                }
+                .navbar ul{
+                    margin-left: 100px;
+                }
+                .navbar ul li a{
+                    color: white;
+                    font-size: 18px;
+                    position: relative;
+                }
+                .navbar ul li a:hover{
+                    color:blue;
+                }
+                .navbar ul li a:hover::before{
+                    width: 80%;
+                
+                }
+                .navbar ul li a::before{
+                    content: "";
+                    position: absolute;
+                    background: green;
+                    left: 2;
+                    bottom:5px;
+                    width: 0%;
+                    height: 5px;
+                    transition: 500ms;
+            
+                }
+                .navbar-brand{
+                    font-weight: bold;
+                    font-size: 24px;
+                    color:#25356d;
+                }
             }
-            .all{
-                background: black;
-                color: white
-            }
-            .col-lg-4 p{
-                padding: 24px;
-            }
-            body {
-                font-family: "Roboto", sans-serif;
-                font-size: 17px;
-                background-color:rgb(230,230,230);
-            }
-            .shadow {
-                box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
-            }
-            .btn-danger {
-                color: #fff;
-                background-color: green;
-                border-color: green;
-            }
-            .btn-danger:hover{
-                color: orange;
-                background: blue;
-            }   
-            .masthead {
-                background:rgb(123, 117, 117);
-                height: auto;
-                padding-bottom: 15px;
-                box-shadow: 0 16px 48px #a4acb4;
-                padding-top: 40px;
-                padding-bottom: 40px;
-                margin-top: -7px;;
-            }
-            .navbar{
-                background: blue;
-                position: fixed;
-                width: 100%;
-                z-index: 100;
-            }
-            .carousel-item button:hover{
-                color: white;
-                background: blue;
-            }
-            #label{
-                font-size: 80px;
-                margin-top: -300px;
-                font-weight: bold;
-            }
-            .carousel-item p{
-                font-size: 20px;
-            }
-            .carousel-item button{
-                border: 1px solid;
-                border-radius: 20px;
-                padding: 10px;
-                background:orange;
-                color: white;
-            }
+            /* =================  media screen for the small screen start 
+            here ================================ */
+
+            @media screen and (max-width:768px){
+                .all{
+                    width: 100%;
+                    background: black;
+                    color: white
+                }
+                #amet{
+                    margin-left: 55px;
+                }
+                .carousel-item img{
+
+                    height: 400px;
+                }
+                .col-lg-4 p{
+                    padding: 24px;
+                }
+                body {
+                    font-family: "Roboto", sans-serif;
+                    font-size: 17px;
+                    background-color:rgb(230,230,230);
+                }
+                .shadow {
+                    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+                }
+                .btn-danger {
+                    color: #fff;
+                    background-color: green;
+                    border-color: green;
+                }
+                .btn-danger:hover{
+                    color: orange;
+                    background: blue;
+                }   
+            
+                .navbar{
+                    position: fixed;
+                    width: 100%;
+                    z-index: 100;
+                    background-color: #778899;
+                }
+                .carousel-item button:hover{
+                    color: white;
+                    background: blue;
+                }
+                #label{
+                    font-size: 80px;
+                    margin-top: -300px;
+                    font-weight: bold;
+                }
+                .carousel-item p{
+                    font-size: 20px;
+                }
+                .carousel-item button{
+                    border: 1px solid;
+                    border-radius: 20px;
+                    padding: 10px;
+                    background:orange;
+                    color: white;
+                }
+                #amet ul li{
+                    list-style-type: none;
+                    font-size: 20px;
+                    padding: 10px;
+                    cursor: pointer;
+                }
+                #amet ul li:hover{
+                    color: orange;
+                }
+                .navbar ul li a{
+                    color: white;
+                    font-size: 18px;
+                    position: relative;
+                }
+                .navbar ul li a:hover{
+                    color:blue;
+                }
+                .navbar ul li a:hover::before{
+                    width: 10%;
+                
+                }
+                .navbar ul li a::before{
+                    content: "";
+                    position: absolute;
+                    background: green;
+                    left: 2;
+                    bottom:5px;
+                    width: 0%;
+                    height: 5px;
+                    transition: 500ms;
+            
+                }
+                .navbar-brand{
+                    font-weight: bold;
+                    font-size: 24px;
+                    color:#25356d;
+                }
+        }
+
         </style>
     </head>
 
     <body>
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="mainNav" style="background-color:#343A40 ;">
+        <!-- Navigation start here -->
+        <nav class="navbar navbar-expand-lg ">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'home' %}">DABO BLOG WEBSITE</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" 
-                    data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">Home</a>
-                        </li>
-                        <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">About</a>
-                        </li>
-                        <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">News</a>
-                        </li>
-                        <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">Breaking News</a>
-                        </li>
-                        <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="{% url 'contact' %}">Contact</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" >
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                      </form>
-                </div>
+              <a class="navbar-brand" href="{% url 'home' %}">DABO BLOG WEBSITE</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="{% url 'home' %}">Home</a>
+                  </li>
+                  <li class="nav-item text-black">
+                        <a class="nav-link font-weight-bold" href="{% url 'about' %}">About</a>
+                    </li>
+                  <li class="nav-item text-black">
+                        <a class="nav-link font-weight-bold" href="{% url 'news' %}">Breaking News</a>
+                    </li>
+                  <li class="nav-item text-black">
+                        <a class="nav-link font-weight-bold" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search" action="search">
+                  <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-success" type="submit">Search</button>
+                </form>
+              </div>
             </div>
-        </nav><br><br>
+        </nav><br><br><br>
+
+        <!-- Navigation end here -->
 
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}
-        <!-- Footer -->
-        <div class="all">
+        
+        <!-- ========= FOOTER START HERE ======== -->
+        <div class="all" style="background-color:black ;color:white ;padding:40px;">
             <div class="container-fluid">
                 <div class="row" id="amet">
-                    <div class="col-lg-4">
-                        <p>Lorem ipsum dolor sit amet consectetur 
-                        adipisicing elit. Unde minima error culpa
-                         ipsa, alias incidunt ut commodi corpori
-                         s suscipit blanditiis eveniet? Alias assumend
-                         a obcaecati, possimus quos exercitationem
-                            quibusdam? Doloremque, architecto!</p>
+                    <div class="col-lg-3">
+                      <h1>Value <span style="color:orange ;">Max</span></h1>
+                      <p>We are a digital platform that 
+                         <br> offers varying 
+                        services, customers <br> satisfaction is our drive 
+                        without <br> mincing our standard!</p>
                     </div>
-                    <div class="col-lg-4">
-                        <p>Lorem ipsum dolor sit amet consectetur 
-                        adipisicing elit. Voluptas id quae odio q
-                        uibusdam ut, perspiciatis officia assume
-                        nda, temporibus corporis deleniti molestiae, 
-                        at culpa natus tenetur eaque consequuntur
-                        facere necessitatibus debitis?</p>
+                    <div class="col-lg-3">
+                       <ul>
+                              <h2 style="color:orange;">ABOUT US</h2>
+                              <li>About us</li>
+                              <li>Hosting <br> and Domain</li>
+                              <li>Buy Data</li>
+                              <li>Services</li>
+                              <li>News</li>
+                              <li>Contact us</li>
+                       </ul>
                     </div>
-                    <div class="col-lg-4">
-                        <p>Lorem, ipsum dolor sit amet consectetur 
-                        adipisicing elit. Id esse explicabo quae 
-                        totam voluptatibus, voluptates delectus 
-                        dolores odit et voluptatem. Lorem ipsum dolor
-                         sit amet consectetur adipisicing elit. Q
-                            ibusdam, veniam!</p>
+                    <div class="col-lg-3">
+                       <h2 style="color:orange ;">TRAINING</h2>
+                       <ul>
+                              <li>Front-End</li>
+                              <li>Server-Side</li>
+                              <li>Data Science</li>
+                              <li>Mobile App</li>
+                              <li>CMS based Web</li>
+                              <li>Design</li>
+                              <li>Digital Marketing</li>
+                              <li>Desktop</li>
+                              <li>Application</li>
+                              <li>Basic Computer</li>
+                              <li>Graphics Design</li>
+                       </ul>
+                    </div>
+                    <div class="col-lg-3">
+                        <h2 style="color: orange;">OFFICES</h2>
+                        <span>30, Old Finbank Building;<br>
+                        Opp UI Post Office, 3rd <br>
+                        Building after FCMB;<br>
+                        UI Ojoo Road, Ibadan
+                        admin@valuemaxoniline.com <br>
+                        +2349097221954</span>
                     </div>
                 </div>  
             </div>
-        </div>
+      </div>
+      <!-- ====== FOOTER END HERE ========== -->
     </body>
 </html>
 

@@ -8,7 +8,8 @@
         <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
         <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
         <img src="{{post.picture.url}}" width="100%" alt="">
-        <p class="card-text ">{{ object.content | safe }}</p>
+        <p class="card-text ">{{ object.content }}</p>
+        <span><a href="{% url 'home' %}" class="btn btn-primary"><i class="bi bi-chevron-double-left"></i>Go back</a></span>
       </div>
     </div>
     {% block sidebar %} 

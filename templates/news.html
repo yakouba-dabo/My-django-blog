@@ -1,0 +1,494 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>BREAKING NEWS</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>            
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+      <style>     
+            @media screen  and (min-width:768px){
+                  #te{
+                        border: none;
+                        border-bottom: 2px solid;
+                        border-left: 2px solid;
+                        border-top: 2px solid;
+                        margin-bottom: 1em;
+                        border-radius: 20px;
+                        box-shadow: 5px 10px 10px ;
+                        padding-bottom: 20px;
+                        }
+                  #war img{
+                        transition: 400ms ;
+                  }
+                  .navbar{
+                        position: fixed;
+                        width: 100%;
+                        z-index: 100;
+                        background-color: #778899;
+                  }
+                  .navbar form{
+                        margin-left: 50px;
+                  }
+                        .navbar ul li a{
+                  color: white;
+                  font-size: 18px;
+                  position: relative;
+                  }
+                  .navbar ul li a:hover{
+                  color:blue;
+                  }
+                  .navbar ul li a:hover::before{
+                  width: 70%;
+                  
+                  }
+                  .navbar ul li a::before{
+                  content: "";
+                  position: absolute;
+                  background: green;
+                  left: 2;
+                  bottom:5px;
+                  width: 0%;
+                  height: 5px;
+                  transition: 500ms;
+            
+                  }
+                  .navbar ul {
+                        margin-left: 220px;
+                  }
+                  #war img:hover{
+                        transform: scale(1.1)
+                  }
+                  #bo img{
+                        cursor: pointer;
+                        transition: 400ms;
+                        
+                  }
+                  #war h1{
+                        position: absolute;
+                        top: 280px;
+                        color: white;
+                  }
+                  #bo img:hover{
+                        transform: scale(1.1);
+                  }
+                  #A{
+                        position: absolute;
+                        top: 140px;
+                        color: white;
+                        font-size: 14px;
+                        font-weight: bold;
+                        background-color: green;
+                  }
+                  #to{
+                        position: absolute;
+                        top: 120px;
+                        color: white;
+                        font-size: 14px;
+                        font-weight: bold;
+                        background-color: green;
+                        width: 20%;
+                        right:25px;
+                  }
+                  #gos{
+                        position: absolute;
+                        top: 320px;
+                        color: white;
+                        font-size: 14px;
+                        font-weight: bold;
+                        background-color: green;
+                        width: 22%;
+                        left: 600px;
+                  }
+                  #on{
+                        position: absolute;
+                        top: 310px;
+                        color: white;
+                        font-size: 14px;
+                        font-weight: bold;
+                        background-color: green;
+                        width: 20%;
+                        right:25px;
+                  }
+                  .col-lg-6 img{
+                        transform: all 1.5s ease-in;
+                        
+                  }
+                  .col-lg-6 img:hover{
+                        transform: scale(.9)
+                  }
+                  #sit{
+                        border: none;
+                        border-left: 1px solid ;
+                        margin-top: 20px;
+                        position: relative;
+                  }
+
+                  #b{ 
+                        background-color: #444;
+                        display: inline-block;
+                        line-height: 26px;
+                        z-index: 1;
+                        position: relative;
+                        padding: 0 10px ;
+                        color: #fff;
+                        margin-top: 20px;
+                  }
+                  h3 a{
+                        color: black;
+                        text-decoration: none;
+                  }
+                  h3 a:hover{
+                        color: green;
+                        text-decoration: none;
+                  }
+                  span a{
+                        text-decoration: none;
+                        color: black;
+                        font-size: 20px;
+                  }
+                  span a:hover{
+                        text-decoration: none;
+                  }
+                  h2{
+                        color: orange;
+                  }
+                  #amet ul li{
+                        list-style-type: none;
+                        font-size: 20px;
+                        padding: 10px;
+                        cursor: pointer;
+                  }
+                  #amet ul li:hover{
+                        color: orange;
+                  }
+                  .navbar-brand{
+                        font-weight: bold;
+                        font-size: 22px;
+                        color:#25356d;
+                }
+            }
+
+            /* =================  media screen for the small screen start 
+            here ================================ */
+
+            @media screen  and (max-width:768px) {
+                  #war img{
+                        transition: 400ms ;
+                  }
+                  .navbar-brand{
+                    font-weight: bold;
+                    font-size: 24px;
+                    color:#25356d;
+                }
+                  .navbar{
+                        position: fixed;
+                        width: 100%;
+                        z-index: 100;
+                        background-color: #778899;
+                  }
+                  .navbar form{
+                        margin-left: 50px;
+                  }
+                  .navbar ul li a{
+                        color: white;
+                        font-size: 18px;
+                        position: relative;
+                  }
+                  .navbar ul li a:hover{
+                        color:blue;
+                  }
+                  .navbar ul li a:hover::before{
+                        width: 10%;
+                  
+                  }
+                  .navbar ul li a::before{
+                        content: "";
+                        position: absolute;
+                        background: green;
+                        left: 2;
+                        bottom:5px;
+                        width: 0%;
+                        height: 5px;
+                        transition: 500ms;
+            
+                  }     
+                  #war img:hover{
+                        transform: scale(1.1)
+                  }
+                  #bo img{
+                        cursor: pointer;
+                        transition: 400ms;
+                        
+                  }
+                  #war h1{
+                        position: absolute;
+                        top: 280px;
+                        color: white;
+                  }
+                  #bo img{
+                        cursor: pointer;
+                        transition:all 400ms;
+                        border: 1px solid ;
+                        border-radius: 30px;
+                        width: 60%;
+                        margin-left: 50px;
+                  
+                  }
+                  #bo img:hover{
+                        transform: scale(1.1);
+                  
+                  }
+                  
+                  #of img{
+                        transition: all 400ms;
+                        border: 1px solid ;
+                        border-radius: 10px;
+                        margin-top: 20px;
+                        margin-left: 50px;
+                        width: 80%;
+                        
+                  }
+                  .col-lg-6 img:hover{
+                        transform: scale(1.1)
+                  }
+                  #sit{
+                        border: none;
+                        border-left: 1px solid ;
+                        margin-top: 20px;
+                        position: relative;
+                  }
+
+                  #b{ 
+                        background-color: #444;
+                        display: inline-block;
+                        line-height: 26px;
+                        z-index: 1;
+                        position: relative;
+                        padding: 0 10px ;
+                        color: #fff;
+                        margin-top: 20px;
+                  }
+                  h3 a{
+                        color: black;
+                        text-decoration: none;
+                  }
+                  h3 a:hover{
+                        color: green;
+                        text-decoration: none;
+                  }
+                  span a{
+                        text-decoration: none;
+                        color: black;
+                        font-size: 20px;
+                  }
+                  span a:hover{
+                        text-decoration: none;
+                  }
+                  h2{
+                  color: orange;
+                  }
+                  #amet ul li{
+                        list-style-type: none;
+                        font-size: 20px;
+                        padding: 10px;
+                        cursor: pointer;
+                  }
+                  #amet ul li:hover{
+                        color: orange;
+                  }
+                  #A{
+                        position: absolute;
+                        top: 545px;
+                        color: white;
+                        padding: 10px;
+                        left: 130px;
+                        background: green;
+                  }
+                  #to{
+                        position: absolute;
+                        top: 720px;
+                        padding: 5px;
+                        color: white;
+                        left: 70px;
+                        background: green;
+                  }
+                  #gos{
+                        position: absolute;
+                        top: 924px;
+                        padding: 5px;
+                        color: white;
+                        left: 70px;
+                        background: green;
+                  }
+                  #on{
+                        position: absolute;
+                        top:1130px;
+                        padding: 5px;
+                        color: white;
+                        left: 100px;
+                        background: green;
+                  }
+            }
+      </style>
+</head>
+      <!-- ====== BODY STARTED HERE ======== -->
+      <body>
+            <!-- ======== navbar start hereeeeeeeee ======= -->
+
+            <nav class="navbar navbar-expand-lg ">
+                  <div class="container-fluid">
+                    <a class="navbar-brand" href="{% url 'home' %}">DABO BLOG WEBSITE</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                          <a class="nav-link " aria-current="page" href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item text-black">
+                              <a class="nav-link font-weight-bold" href="{% url 'about' %}">About</a>
+                          </li>
+                        <li class="nav-item text-black">
+                              <a class="nav-link font-weight-bold" href="{% url 'news' %}">Breaking News</a>
+                          </li>
+                        <li class="nav-item text-black">
+                              <a class="nav-link font-weight-bold" href="{% url 'contact' %}">Contact</a>
+                          </li>
+                      </ul>
+                      <form class="d-flex" role="search" action="search">
+                        <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-success" type="submit">Search</button>
+                      </form>
+                    </div>
+                  </div>
+            </nav>
+            <!-- ======= navbar ended hereeeeeeeeee ======= -->
+
+            <!-- ===== Breaking news start here==========  --> 
+            <div class="container-fluid"><br><br><br>
+                  <div class="row">
+                        <div class="col-lg-6"  id="war">
+                              <img src="media/Femi.jpg" width="100%" height="400px" alt="">
+                              <h1>Obi Attempting To Cause <br> Second Civil War, <br> Femi Kayode Alleges</h1>
+                        </div>
+                        <div class="col-lg-6" id="of">
+                              <div class="row">
+                                    <div class="col-lg-6" >
+                                          <img src="media/Queen.jpg" width="100%" height="150px" alt="">
+                                          <p id="A">A Queen And The Wounds Of  History</p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                          <img src="media/aa.png" width="100%" height="149px" alt="">
+                                          <p id="to">Vital Things To Happen On  Day Of The Queen's Federal</p>  
+                                    </div>
+                              </div>
+                              <div class="row">
+                                    <div class="col-lg-6">
+                                          <img src="media/the.png" width="100%" height="186px" alt="">
+                                          <p id="gos">The Lagos State "Setback Parking Levy Is Legal" </p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                          <img src="media/on.jpg" width="100%" height="186px" alt=""><br>
+                                          <span id="on">Expect Faults Minister's Claim On Security</span>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+            <br>
+
+            <div class="container-fluid">
+
+                  <div class="row" style="margin-left:20px ;">
+                        <div class="col-lg-8" id="bo">
+                              {% for p in blog %}
+                              <div class="row" id="te">
+                                   <div class="col-lg-4 " ><br>
+                                          <img src="{{ p.picture.url }}" width="100%" alt="">
+                                    </div><br><br>
+                                    <div class="col-lg-7 "><br>
+                                          <h3><a href="{% url 'post_detail' p.slug %}">{{p.title}}</a></h3>
+                                          <span>{{p.content|slice:":200" }}</span>
+                                    </div>
+                                    
+                              </div>
+                              {% endfor %}
+                        </div>
+                        <div class="col-lg-4" id="sit">
+                              {% for p in blog %}
+                             <div id="bash">
+                                    <h3 id="post">RECENT POSTS</h3>
+                                    <span style="font-size:25px;"><a href="{% url 'post_detail' p.slug %}">{{p.title}}</a></span><br>
+                                    
+                                    <span>{{p.created_on}}</span>
+                                   
+                                    <hr>
+                             </div>
+                             {% endfor %}
+                        </div>
+                  </div>
+            </div><br><br>
+            <!-- ===== Breaking news ended here ======== -->
+
+            <!-- ==== footer startttttttttttttttttttttt ======== -->
+            <div class="all" style="background-color:black ;color:white ;padding:40px;">
+                  <div class="container-fluid">
+                      <div class="row" id="amet">
+                          <div class="col-lg-3">
+                            <h1>Value <span style="color:orange ;">Max</span></h1>
+                            <p>We are a digital platform that 
+                               <br> offers varying 
+                              services, customers <br> satisfaction is our drive 
+                              without <br> mincing our standard!</p>
+                          </div>
+                          <div class="col-lg-3">
+                             <ul>
+                                    <h2>ABOUT US</h2>
+                                    <li>About us</li>
+                                    <li>Hosting <br> and Domain</li>
+                                    <li>Buy Data</li>
+                                    <li>Services</li>
+                                    <li>News</li>
+                                    <li>Contact us</li>
+                             </ul>
+                          </div>
+                          <div class="col-lg-3">
+                             <h2>TRAINING</h2>
+                             <ul>
+                                    <li>Front-End</li>
+                                    <li>Server-Side</li>
+                                    <li>Data Science</li>
+                                    <li>Mobile App</li>
+                                    <li>CMS based Web</li>
+                                    <li>Design</li>
+                                    <li>Digital Marketing</li>
+                                    <li>Desktop</li>
+                                    <li>Application</li>
+                                    <li>Basic Computer</li>
+                                    <li>Graphics Design</li>
+                             </ul>
+                          </div>
+                          <div class="col-lg-3">
+                              <h2>OFFICES</h2>
+                              <span>30, Old Finbank Building;<br>
+                              Opp UI Post Office, 3rd <br>
+                              Building after FCMB;<br>
+                              UI Ojoo Road, Ibadan
+                              admin@valuemaxoniline.com <br>
+                              +2349097221954</span>
+                          </div>
+                      </div>  
+                  </div>
+            </div>
+
+            <!-- ====== footer ended hereeeeeeeee============== -->
+      </body>
+      <!-- ======= BODY ENDED HERE ============ -->
+</html>
+{% endblock %}
