@@ -429,11 +429,12 @@
                               {% for p in blog %}
                               <div class="row" id="te">
                                    <div class="col-lg-4 " ><br>
-                                          <img src="{{ p.picture.url }}" width="100%" alt="">
+                                          <img src="{{ p.picture.url }}" width="100%" height="200px" alt="">
                                     </div><br><br>
                                     <div class="col-lg-7 "><br>
                                           <h3><a href="{% url 'post_detail' p.slug %}">{{p.title}}</a></h3>
-                                          <span>{{p.content|slice:":200" }}</span>
+                                          <span>{{p.content|slice:":200" }}</span><br><br>
+                                          <a href="{% url 'post_detail' p.slug %}" class="btn btn-outline-success">Read More </a>
                                     </div>
                                     
                               </div>
@@ -444,7 +445,6 @@
                              <div id="bash">
                                     <h3 id="post">RECENT POSTS</h3>
                                     <span style="font-size:25px;"><a href="{% url 'post_detail' p.slug %}">{{p.title}}</a></span><br>
-                                    
                                     <span>{{p.created_on}}</span>
                                    
                                     <hr>
