@@ -9,7 +9,8 @@ urlpatterns = [
     path('search',views.serach,name='search'),
     path('contact',views.contact,name='contact'),
     path('about',views.about,name='about'),
-    path('news',views.news,name='news')
+    path('news',views.news,name='news'),
+    # path('another',views.another,name='another')
 
 ]
 

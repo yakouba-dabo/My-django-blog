@@ -1,10 +1,9 @@
-
-from multiprocessing import context
 from django.views import generic
 from .models import Post
 from django.db.models import Q
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.core.mail import send_mail
+from django.contrib import messages
 
 
 
@@ -27,32 +26,35 @@ def serach(request):
             return render(request,'search.html', {'posts':posts})
         else:
             posts=Post.objects.all()
-        # context= {
-        #     'posts':posts
-        # }
         return render(request,'index.html',{'posts':posts})
 
 
 def contact(request):
         if request.method== 'POST':
-            name=request.POST.get('name')
-            email=request.POST.get('email')
-            phone=request.POST.get('phone')
-            message=request.POST.get('message')
+            try:
+                name=request.POST.get('name')
+                email=request.POST.get('email')
+                phone=request.POST.get('phone')
+                message=request.POST.get('message')
 
-            form_data={
-                  'name':name,
-                  'email':email,
-                  'phone':phone,
-                  'message':message,
-            }
-            message=''' 
-            From:\n\t\t{}\n
-            Message:\n\t\t{}\n
-            Email:\n\t\t{}\n
-            Phone:\n\t\t{}\n
-            '''.format(form_data['name'], form_data['message'], form_data['email'], form_data['phone'])
-            send_mail('You got a mail', message , '' , ['daboyakouba22@gmail.com']) #this will be your email address
+                form_data={
+                    'name':name,
+                    'email':email,
+                    'phone':phone,
+                    'message':message,
+                }
+                message=''' 
+                From:\n\t\t{}\n
+                Message:\n\t\t{}\n
+                Email:\n\t\t{}\n
+                Phone:\n\t\t{}\n
+                '''.format(form_data['name'], form_data['message'], form_data['email'], form_data['phone'])
+                send_mail('You got a mail', message , '' , ['daboyakouba22@gmail.com']) #this will be your email address
+                messages.info(request,'Message sent successfuly')
+            except Exception as e:
+                print(e)
+                messages.info(request,'message not sent try again')
+               
         return render(request,'contact.html', {})
 
 
@@ -65,3 +67,7 @@ def news(request):
         'blog':blog
     }   
     return render(request,'news.html', context )
+
+# def another(request):
+#     project=Post.objects.all()
+#     return render(request,'another.html',{'project':project})
