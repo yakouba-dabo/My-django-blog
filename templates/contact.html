@@ -312,7 +312,7 @@
                               </li>
                         </ul>
                         <form class="d-flex" role="search" action="search">
-                              <input class="form-control me-2" name="q" type="search" placeholder="Search"
+                              <input class="form-control me-2" name="q" type="search" placeholder="Search for only news"
                                     aria-label="Search">
                               <button class="btn btn-success" type="submit">Search</button>
                         </form>
@@ -411,6 +411,22 @@
       <section class="section" id="contact">
             <form class="come" method="POST" name="contactform">
                   {% csrf_token %}
+                  <div class="form-group">
+                        {% for message in messages %}
+                        {% if message %}
+                        <div class="alert alert-success " role="alert">
+                              {{message}}
+                        </div>
+                              {% else  %}
+                        <div class="alert alert-danger " role="alert">
+                              {{message}}
+                        </div>
+                             
+                       
+                        {% endif %}
+                       
+                        {% endfor %}
+                  </div>
                   <div class="header">
                         <h3>Contact me</h3>
                   </div>
@@ -434,18 +450,12 @@
                   </div>
                   <div class="form-control">
                         <label>Input A Messages </label>
-                        <textarea name="message" class="form-control" id="test" onkeyup="area()"></textarea><br>
+                        <textarea name="message" class="form-control" id="test" onkeyup="area()" placeholder="Messages"></textarea><br>
                         <span id="mess"></span>
                   </div><br>
 
                   <button id="now" type="submit">Send Now </button><br>
-                  <div class="form-group">
-                        {% for message in messages %}
-                        <div class="alert alert-danger" role="alert">
-                              {{message}}
-                        </div>
-                        {% endfor %}
-                  </div>
+                  
             </form>
       </section>
       <br><br><br>
@@ -470,8 +480,7 @@
                                     <li>Hosting <br> and Domain</li>
                                     <li>Buy Data</li>
                                     <li>Services</li>
-                                    <!-- <li>News</li>
-                                    <li>Contact us</li> -->
+                                   
                               </ul>
                         </div>
                         <div class="col-lg-3">
@@ -482,12 +491,7 @@
                                     <li>Data Science</li>
                                     <li>Mobile App</li>
                                     <li>CMS based Web</li>
-                                    <!-- <li>Design</li>
-                                    <li>Digital Marketing</li> -->
-                                    <!-- <li>Desktop</li>
-                                    <li>Application</li>
-                                    <li>Basic Computer</li>
-                                    <li>Graphics Design</li> -->
+                                    
                               </ul>
                         </div>
                         <div class="col-lg-3">

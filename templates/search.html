@@ -82,7 +82,8 @@
         font-size: 24px;
         color: #25356d;
       }
-      .all h2{
+
+      .all h2 {
         color: orange;
       }
     }
@@ -110,9 +111,11 @@
         width: 20%;
 
       }
-      .all h2{
+
+      .all h2 {
         color: orange;
       }
+
       .navbar ul li a::before {
         content: "";
         position: absolute;
@@ -156,99 +159,100 @@
   </style>
 </head>
 
-    <body>
-      <nav class="navbar navbar-expand-lg " style="background-color:lightslategray ;">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'home' %}">DABO BLOG WEBSITE</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#blog"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="blog">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="{% url 'home' %}">Home</a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link  font-weight-bold" href="{% url 'about' %}">About</a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link  font-weight-bold" href="{% url 'news' %}">Breaking News</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link  font-weight-bold" href="{% url 'contact' %}">Contact</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search" action="search">
-              <input class="form-control me-2" name="q" type="search" placeholder="Search for only news about Nigeria" aria-label="Search" required>
-              <button class="btn btn-primary" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-      <br><br><br>
-      <div class="container">
-        {% for p in posts %}
-        <form action="search" method="get">
-          <h2 class="card-title">{{ p.title }}</h2>
-          <span>{{p.slug}}</span>
-          <span>{{p.author}}</span>
-          <span>{{p.updated_on}}</span>
-          <img src="{{ p.picture.url }}" width="100%" alt="">
-          <span>{{p.content }}</span>
-          <span>{{p.created_on}}</span>
-          <span>{{p.status}}</span><br><br>
-          <a href="{% url 'home' %}" class="btn btn-primary">Go Back</a><br>
+<body>
+  <nav class="navbar navbar-expand-lg " style="background-color:lightslategray ;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">DABO BLOG WEBSITE</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#blog"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="blog">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link  font-weight-bold" href="{% url 'about' %}">About</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link  font-weight-bold" href="{% url 'news' %}">Breaking News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  font-weight-bold" href="{% url 'contact' %}">Contact</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search" action="search">
+          <input class="form-control me-2" name="q" type="search" placeholder="Search for only news about Nigeria"
+            aria-label="Search" required>
+          <button class="btn btn-primary" type="submit">Search</button>
         </form>
-        {% endfor %}
-      </div><br><br>
-      <div class="all" style="background-color:black ;color:white ;padding:40px;">
-        <div class="container-fluid">
-          <div class="row" id="amet">
-            <div class="col-lg-3">
-              <h1>Value <span style="color:orange ;">Max</span></h1>
-              <p style="font-size:23px ;">We are a digital platform that
-                <br> offers varying
-                services, customers <br> satisfaction is our drive
-                without <br> mincing our standard!</p>
-            </div>
-            <div class="col-lg-3">
-              <ul>
-                <h2>ABOUT US</h2>
-                <li>About us</li>
-                <li>Hosting <br> and Domain</li>
-                <li>Buy Data</li>
-                <li>Services</li>
-                <li>News</li>
-                <li>Contact us</li>
-              </ul>
-            </div>
-            <div class="col-lg-3">
-              <h2>TRAINING</h2>
-              <ul>
-                <li>Front-End</li>
-                <li>Server-Side</li>
-                <li>Data Science</li>
-                <li>Mobile App</li>
-                <li>CMS based Web</li>
-                <li>Design</li>
-                <li>Digital Marketing</li>
+      </div>
+    </div>
+  </nav>
+  <br><br><br>
+  <div class="container">
+    {% for p in posts %}
+    <form action="search" method="get">
+      <h2 class="card-title">{{ p.title }}</h2>
+      <span>{{p.slug}}</span>
+      <span>{{p.author}}</span>
+      <span>{{p.updated_on}}</span>
+      <img src="{{ p.picture.url }}" width="100%" alt="">
+      <span>{{p.content }}</span>
+      <span>{{p.created_on}}</span>
+      <span>{{p.status}}</span><br><br>
+      <a href="{% url 'home' %}" class="btn btn-primary">Go Back</a><br>
+    </form>
+    {% endfor %}
+  </div><br><br>
+  <div class="all" style="background-color:black ;color:white ;padding:40px;">
+    <div class="container-fluid">
+      <div class="row" id="amet">
+        <div class="col-lg-3">
+          <h1>Value <span style="color:orange ;">Max</span></h1>
+          <p style="font-size:23px ;">We are a digital platform that
+            <br> offers varying
+            services, customers <br> satisfaction is our drive
+            without <br> mincing our standard!</p>
+        </div>
+        <div class="col-lg-3">
+          <ul>
+            <h2>ABOUT US</h2>
+            <li>About us</li>
+            <li>Hosting <br> and Domain</li>
+            <li>Buy Data</li>
+            <li>Services</li>
+            <li>News</li>
+            <li>Contact us</li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h2>TRAINING</h2>
+          <ul>
+            <li>Front-End</li>
+            <li>Server-Side</li>
+            <li>Data Science</li>
+            <li>Mobile App</li>
+            <li>CMS based Web</li>
+            <li>Design</li>
+            <li>Digital Marketing</li>
 
-              </ul>
-            </div>
-            <div class="col-lg-3">
-              <h2>OFFICES</h2>
-              <span style="font-size:24px ;">30, Old Finbank Building;<br>
-                Opp UI Post Office, 3rd <br>
-                Building after FCMB;<br>
-                UI Ojoo Road, Ibadan
-                admin@valuemaxoniline.com <br>
-                +2349097221954</span>
-            </div>
-          </div>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h2>OFFICES</h2>
+          <span style="font-size:24px ;">30, Old Finbank Building;<br>
+            Opp UI Post Office, 3rd <br>
+            Building after FCMB;<br>
+            UI Ojoo Road, Ibadan
+            admin@valuemaxoniline.com <br>
+            +2349097221954</span>
         </div>
       </div>
-    </body>
+    </div>
+  </div>
+</body>
 
 </html>
 

@@ -50,10 +50,10 @@ def contact(request):
                 Phone:\n\t\t{}\n
                 '''.format(form_data['name'], form_data['message'], form_data['email'], form_data['phone'])
                 send_mail('You got a mail', message , '' , ['daboyakouba22@gmail.com']) #this will be your email address
-                messages.info(request,'Message sent successfuly')
+                messages.success(request,'Message sent successfuly')
             except Exception as e:
                 print(e)
-                messages.info(request,'message not sent try again')
+                messages.error(request,'Message not Sent Please Try again')
                
         return render(request,'contact.html', {})
 
